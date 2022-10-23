@@ -1,4 +1,4 @@
-./tmp
+./tmp/*
 ./upload/*
 !./upload/.gitkeep
 *.json
