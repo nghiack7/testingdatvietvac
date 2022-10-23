@@ -32,7 +32,6 @@ func NewS3(session *session.Session, timeout time.Duration) BucketClient {
 func (s S3) Create(ctx context.Context, bucket string) error {
 	ctx, cancel := context.WithTimeout(ctx, s.timeout)
 	defer cancel()
-	fmt.Println("HERE")
 	if _, err := s.client.CreateBucketWithContext(ctx, &s3.CreateBucketInput{
 		Bucket: aws.String(bucket),
 	}); err != nil {

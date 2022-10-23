@@ -23,7 +23,7 @@ func init() {
 		ID:      "test",
 		Secret:  "test"}
 	newssess := cloud.ConnectAWS(config)
-	newS3 = cloud.NewS3(newssess, 50000*time.Second)
+	newS3 = cloud.NewS3(newssess, 5*time.Second)
 }
 
 func main() {

@@ -39,7 +39,7 @@ func (server *Server) UploadData(c *gin.Context) {
 	var wg sync.WaitGroup
 	data, err := ioutil.ReadAll(c.Request.Body)
 	if err != nil {
-		fmt.Errorf("Can't get file from Request, err= %v", err)
+		fmt.Errorf("Can't get data from Request, err= %v", err)
 	}
 	//upload to folder upload source
 	go handlers.HandlerUpload(data)
@@ -49,6 +49,6 @@ func (server *Server) UploadData(c *gin.Context) {
 	go handlers.HandlerUploadToS3(data, server.Client, &wg)
 	wg.Wait()
 	c.JSON(http.StatusCreated, gin.H{
-		"message": "Accepted uploaded the file",
+		"message": "Accepted uploaded data",
 	})
 }

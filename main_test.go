@@ -23,7 +23,7 @@ type Body struct {
 func TestUploadDataApi(t *testing.T) {
 	gin.SetMode(gin.TestMode)
 
-	mockResponse := `{"message":"Accepted uploaded the file"}`
+	mockResponse := `{"message":"Accepted uploaded data"}`
 	//create s3 client
 	config := cloud.Config{
 		Address: "http://localhost:4566",
